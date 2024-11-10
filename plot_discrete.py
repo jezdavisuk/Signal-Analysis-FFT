@@ -50,3 +50,12 @@ n = np.arange(-N/2,N/2,1)
 n1 = n > 0
 n2 = n < 0
 
+# define DFT array
+V_tilde_n = np.zeros(N)
+
+# set entry for n=0 equal to 1/3
+V_tilde_n[n == 0] = 1/3
+
+# set analytically-derived entries for positive and negative n, excluding static n=0
+V_tilde_n[n1] = (2 * (-1) ** n[n1]) / (np.pi ** 2 * n[n1] ** 2)
+V_tilde_n[n2] = (2 * (-1) ** n[n2]) / (np.pi ** 2 * n[n2] ** 2)

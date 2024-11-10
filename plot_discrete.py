@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from numpy.fft import fft, ifft, fftfreq, fftshift
 
 def discrete_quadratic(T,N,tN):
     # create an array of zeros of length N
@@ -34,3 +35,8 @@ plt.xlim(0.0,8.0)   # set t to span sample time 0 to 8 seconds
 
 # output file ./graphics/sig_disc.png
 plt.show()
+
+# evaluate FFT of signal V returns vector of Fourier coefficients
+# option norm=forward to account for 1/N normalisation for discrete Fourier Transforms
+V_fft = fft(V, norm='forward')
+

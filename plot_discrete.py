@@ -59,3 +59,8 @@ V_tilde_n[n == 0] = 1/3
 # set analytically-derived entries for positive and negative n, excluding static n=0
 V_tilde_n[n1] = (2 * (-1) ** n[n1]) / (np.pi ** 2 * n[n1] ** 2)
 V_tilde_n[n2] = (2 * (-1) ** n[n2]) / (np.pi ** 2 * n[n2] ** 2)
+
+# define frequency arrays
+f_num = n / tN
+f_analytic = n / T
+

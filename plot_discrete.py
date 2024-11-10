@@ -16,3 +16,9 @@ def discrete_quadratic(T,N,tN):
         else:
             V[k] = ((tk % T) - T) ** 2
     return V
+
+tN = 8.0    # sampling time
+samplerate = 512
+N = int(tN * samplerate)    # total number of data points sampled
+
+T = 2   # fundamental period

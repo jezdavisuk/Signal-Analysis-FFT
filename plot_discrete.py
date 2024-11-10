@@ -40,3 +40,13 @@ plt.show()
 # option norm=forward to account for 1/N normalisation for discrete Fourier Transforms
 V_fft = fft(V, norm='forward')
 
+# set total number of data points
+N = 4096
+
+# define array for n ascending between -2048 and 2047
+n = np.arange(-N/2,N/2,1)
+
+# set conditions for positive and negative n
+n1 = n > 0
+n2 = n < 0
+

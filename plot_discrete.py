@@ -64,3 +64,13 @@ V_tilde_n[n2] = (2 * (-1) ** n[n2]) / (np.pi ** 2 * n[n2] ** 2)
 f_num = n / tN
 f_analytic = n / T
 
+# map Fourier coefficients to discrete frequencies and plot against real-valued solution
+plt.scatter(f_analytic, np.real(V_tilde_n), color='red', label='Exact')
+plt.plot(f_num, fftshift(np.real(V_fft)), color='blue', label='Numerical')
+plt.xlim(-5, 5)
+plt.ylim(-0.23, 0.35)
+plt.xlabel('Frequency, f')
+plt.ylabel('Real part of Fourier Transforms')
+plt.title('Contrasting analytical and numerical by their real parts')
+plt.legend()
+plt.show()

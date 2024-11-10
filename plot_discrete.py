@@ -73,6 +73,8 @@ plt.xlabel('Frequency, f')
 plt.ylabel('Real part of Fourier Transforms')
 plt.title('Contrasting analytical and numerical DFTs by their real parts')
 plt.legend()
+
+## output file ./graphics/dft_real.png
 plt.show()
 
 # map Fourier coefficients to discrete frequencies and plot against imaginary-valued solution
@@ -84,4 +86,6 @@ plt.xlabel('Frequency, f')
 plt.ylabel('Imaginary part of Fourier Transforms')
 plt.title('Contrasting analytical and numerical DFTs by their imaginary parts')
 plt.legend()
+
+## output file ./graphics/dft_imag.png
 plt.show()

@@ -22,3 +22,15 @@ samplerate = 512
 N = int(tN * samplerate)    # total number of data points sampled
 
 T = 2   # fundamental period
+
+t = np.linspace(0,tN,N)     # define the time array
+V = discrete_quadratic(T,N,tN)    # construct discretised signal
+
+plt.plot(t,V)
+plt.title('V(t) as a function of time t')
+plt.xlabel('t (s)')
+plt.ylabel('V(t)')
+plt.xlim(0.0,8.0)   # set t to span sample time 0 to 8 seconds
+
+# output file ./graphics/sig_disc.png
+plt.show()

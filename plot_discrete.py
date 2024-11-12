@@ -110,4 +110,11 @@ def dominant_freq(samplerate, V):
     # extract index for maximum ESD, non-negative frequencies only
     ESD_max = ESD_shift[int(N/2):].argmax(axis=0) + int(N/2)
 
-    return dominant_freq
+    # define the frequency array
+    n = np.arange(-N/2,N/2,1)
+    f = n / tN
+
+    # match frequency to index n at max ESD
+    dom_freq = f[ESD_max]
+
+    return dom_freq

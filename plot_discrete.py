@@ -151,4 +151,7 @@ def detect_note(samplerate, V):
     # define notes of the C major scale, no sharps, no flats
     c_major_scale = np.array(['C','D','E','F','G','A','B'])
 
+    # frequencies of all notes, in ascending order across the fourth octave, CMaj
+    octaves = np.array([261.6,293.7,329.6,349.2,392.0,440.0,493.9])
+
     return note, octave, df, pitch

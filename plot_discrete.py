@@ -123,7 +123,7 @@ from scipy.io import wavfile
 import sounddevice as sd
 
 # read a .wav file, write to array V
-samplerate, V = wavfile.read('./guitar-D4')
+samplerate, V = wavfile.read('./guitar-D4.wav')
 
 # log to console inferred sample rate on .wav file
 print(f'Sample rate = {samplerate} Hz')
@@ -166,3 +166,14 @@ def detect_note(samplerate, V):
                 note, octave, df = c_maj[i], j + 4, exact_freq
 
     return note, octave, df, pitch
+
+detect_note(samplerate, V)
+
+# -----------------------------Consider Refactoring by DRY principle-----------------------------------
+samplerate, V = wavfile.read('./note1.wav')
+print(f'Sample rate = {samplerate} Hz')
+print(f'Number of points, N = {N}')
+tN = N / samplerate
+print(f'Recording time, t_N = {tN} s')
+print(f'Time step, dt = {dt} s')
+# ------------------------------------------------------------------------------------------------------

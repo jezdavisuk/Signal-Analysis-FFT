@@ -149,9 +149,20 @@ def detect_note(samplerate, V):
         return "This signal has a dominant frequency outside the permitted range"
 
     # define notes of the C major scale, no sharps, no flats
-    c_major_scale = np.array(['C','D','E','F','G','A','B'])
+    c_maj = np.array(['C','D','E','F','G','A','B'])
 
     # frequencies of all notes, in ascending order across the fourth octave, CMaj
     octaves = np.array([261.6,293.7,329.6,349.2,392.0,440.0,493.9])
+
+    # tolerance value
+    tol = 300.0
+
+    for i in range(0,7):
+        for j in range(-4,4):
+            exact_freq = octaves[i] * 2 ** j
+            difference = abs(exact_freq - pitch)
+            if (difference <= tol):
+                tol = difference
+                note, octave, df = c_maj[i], j + 4, exact_freq
 
     return note, octave, df, pitch

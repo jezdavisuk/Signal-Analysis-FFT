@@ -1,3 +1,5 @@
+from json.encoder import ESCAPE_DCT
+
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.fft import fft, ifft, fftfreq, fftshift
@@ -91,6 +93,18 @@ plt.legend()
 plt.show()
 
 def dominant_freq(samplerate, V):
+    N = len(V)  # total data points in discretised V(t)
 
+    # fast Fourier transform on signal V(t)
+    V_fft = fft(V, norm='forward')
+
+    # sampling time
+    tN = N / samplerate
+
+    # multiply each Fourier coefficient of the FFT by its conjugate to give the ESD
+    ESD = np.real(V_fft * np.conjugate(V_fft))
+
+    # shift zero-frequency component to centre
+    ESD_shift = fftshift(ESD)
 
     return dominant_freq

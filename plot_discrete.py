@@ -177,3 +177,17 @@ tN = N / samplerate
 print(f'Recording time, t_N = {tN} s')
 print(f'Time step, dt = {dt} s')
 # ------------------------------------------------------------------------------------------------------
+
+n = np.arange(-N/2,N/2,1)
+f = n / tN
+
+V_fft = fft(V, norm='forward')
+
+ESD = np.real(V_fft * np.conjugate(V_fft))
+
+ESD_shift = fftshift(ESD)
+
+plt.plot(f, ESD_shift)
+plt.xlabel('f (Hz)')
+plt.ylabel('Energy spectral density')
+plt.xlim(-1500,1500);

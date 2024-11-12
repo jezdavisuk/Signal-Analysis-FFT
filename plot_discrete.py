@@ -124,3 +124,17 @@ import sounddevice as sd
 
 # read a .wav file, write to array V
 samplerate, V = wavfile.read('./guitar-D4')
+
+# log to console inferred sample rate on .wav file
+print(f'Sample rate = {samplerate} Hz')
+
+N = len(V)  # total number of data points
+print(f'Number of points, N = {N}')
+
+tN = N / samplerate  # total sampling time
+print(f'Recording time, t_N = {tN} s')
+
+dt = 1 / samplerate   # evaluate time-step
+print(f'Time step, dt = {dt} s')
+
+dominant_freq(samplerate, V)

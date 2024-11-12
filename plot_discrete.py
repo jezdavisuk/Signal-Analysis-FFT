@@ -138,3 +138,10 @@ dt = 1 / samplerate   # evaluate time-step
 print(f'Time step, dt = {dt} s')
 
 dominant_freq(samplerate, V)
+
+def detect_note(samplerate, V):
+
+    # evaluate the dominant frequency for discretised signal V(t)
+
+
+    return note, octave, df, pitch

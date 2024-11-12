@@ -89,3 +89,8 @@ plt.legend()
 
 ## output file ./graphics/dft_imag.png
 plt.show()
+
+def dominant_freq(samplerate, V):
+
+
+    return dominant_freq

@@ -118,3 +118,9 @@ def dominant_freq(samplerate, V):
     dom_freq = f[ESD_max]
 
     return dom_freq
+
+from scipy.io import wavfile
+import sounddevice as sd
+
+# read a .wav file, write to array V
+samplerate, V = wavfile.read('./guitar-D4')

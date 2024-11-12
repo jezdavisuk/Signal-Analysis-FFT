@@ -107,4 +107,7 @@ def dominant_freq(samplerate, V):
     # shift zero-frequency component to centre
     ESD_shift = fftshift(ESD)
 
+    # extract index for maximum ESD, non-negative frequencies only
+    ESD_max = ESD_shift[int(N/2):].argmax(axis=0) + int(N/2)
+
     return dominant_freq

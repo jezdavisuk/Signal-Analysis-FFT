@@ -142,6 +142,13 @@ dominant_freq(samplerate, V)
 def detect_note(samplerate, V):
 
     # evaluate the dominant frequency for discretised signal V(t)
+    pitch = dominant_freq(samplerate, V)
 
+    # accept only frequencies in established range
+    if pitch < 15 or pitch >= 4250:
+        return "This signal has a dominant frequency outside the permitted range"
+
+    # define notes of the C major scale, no sharps, no flats
+    c_major_scale = np.array(['C','D','E','F','G','A','B'])
 
     return note, octave, df, pitch
